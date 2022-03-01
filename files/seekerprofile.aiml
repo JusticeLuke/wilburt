@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <category>
+        <pattern>I WORK AS A <set>job</set></pattern>
+        <template><srai>MY JOB IS <set>job</set></srai></template>
+    </category>
+    
+    <category>
+        <pattern>I WORK AS A *</pattern>
+        <template><srai>MY JOB IS <star/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>I AM A <set>job</set></pattern>
+        <template><srai>MY JOB IS <set>job</set></srai></template>
+    </category>
+    
+    <category>
+        <pattern>I AM A *</pattern>
+        <template><srai>MY JOB IS <star/></srai></template>
+    </category>
+    
+    <category>
+        <pattern>MY JOB TITLE IS <set>job</set></pattern>
+        <template><srai>MY JOB IS <set>job</set></srai></template>
+    </category>
+    
+    <category>
+        <pattern>MY JOB TITLE IS *</pattern>
+        <template><srai>MY JOB IS <star/></srai></template>
+    </category>
+    
+	<category>
+	    <pattern>MY JOB IS <set>job</set></pattern>
+        <template><set name="job"><formal><star/></formal></set> is a decent job. <think><set name="it"><set name="topic"><star/></set></set></think></template>
+    </category>
+    
+    <category>
+        <pattern>MY JOB IS *</pattern>
+        <template>Sorry I do not know what a <star/> is. I only know tech jobs, in fact I can help you find one!<srai>I WANT A NEW JOB</srai></template>
+    </category>
+    
+    <category>
+        <pattern>^ JOB ^</pattern>
+        <template>Sorry I do not understand, but I can help you find a tech job! <srai>I WANT A NEW JOB</srai></template>
+    </category>
+    
+    <category>
+	    <pattern>I WANT A JOB</pattern>
+        <template><srai>I WANT A NEW JOB</srai></template>
+    </category>
+    
+    <category>
+	    <pattern>I AM * FOR A * JOB</pattern>
+        <template><srai>I WANT A NEW JOB</srai></template>
+    </category>
+    
+    <category>
+	    <pattern>I AM * FOR A JOB</pattern>
+        <template>Alright, <srai>I WANT A NEW JOB</srai></template>
+    </category>
+    
+    <category>
+	    <pattern>CAN YOU * ME * A JOB</pattern>
+        <template>Of Course! <srai>I WANT A NEW JOB</srai></template>
+    </category>
+   
+    <category>
+	    <pattern>I WANT A NEW JOB</pattern>
+        <template>Would you like the main responsibilty of your<set name="topic"> job </set>to be coding?</template>
+    </category>
+    
+    <topic name = "job">
+        //Decision branch for Developer or Other
+        <category>
+        <pattern>YES</pattern>
+        <that>Would you like the main responsibilty of your job to be coding</that>
+        <template>Do you prefer working with languages like html, css, and javascript?</template>
+        </category>
+        
+            //Decision branch for Software Dev or Web Dev
+            <category>
+            <pattern>YES</pattern>
+            <that>Do you prefer working with languages like html, css, and javascript</that>
+            <template>I think WEB DEVELOPER would be a good job for you!</template>
+            </category>
+            
+            <category>
+            <pattern>NO</pattern>
+            <that>Do you prefer working with languages like html, css, and javascript</that>
+            <template>Do you prefer working with langauges like java, python, and c?</template>
+            </category>
+                //Decision branch for Software Dev or Nothing
+                <category>
+                <pattern>YES</pattern>
+                <that>DO YOU PREFER WORKING WITH LANGAUGES LIKE JAVA, PYTHON, AND C</that>
+                <template>I think SOFTWARE DEVLOPER would be a good job for you!</template>
+                </category>
+                
+                <category>
+                <pattern>NO</pattern>
+                <that>DO YOU PREFER WORKING WITH LANGAUGES LIKE JAVA, PYTHON, AND C</that>
+                <template>Hmmm I'm drawing a blank, sorry I can't help</template>
+                </category>
+                
+                <category>
+                <pattern>*</pattern>
+                <that>DO YOU PREFER WORKING WITH LANGAUGES LIKE JAVA, PYTHON, AND C</that>
+                <template>Yes or no answers please.</template>
+                </category>
+                
+            <category>
+            <pattern>*</pattern>
+            <that>Do you prefer working with languages like html, css, and javascript</that>
+            <template>Yes or no answers please.</template>
+            </category>
+            
+        
+        <category>
+        <pattern>NO</pattern>
+        <that>Would you like the main responsibilty of your job to be coding</that>
+        <template>Would you like coordinating customer needs to help developers?</template>
+        </category>
+        
+            //Decision branch for Product Owner or Other
+            <category>
+            <pattern>YES</pattern>
+            <that>WOULD YOU LIKE COORDINATING CUSTOMER NEEDS TO HELP DEVELOPERS</that>
+            <template>I think PRODUCT OWNER would be a good job for you!</template>
+            </category>
+            
+            <category>
+            <pattern>NO</pattern>
+            <that>WOULD YOU LIKE COORDINATING CUSTOMER NEEDS TO HELP DEVELOPERS</that>
+            <template>Does the cloud interest you?</template>
+            </category>
+            
+                //Decision branch for Cloud Architect or System Admin
+                <category>
+                <pattern>YES</pattern>
+                <that>Does the cloud interest you</that>
+                <template>I think CLOUD ARCHITECT would be a good job for you!</template>
+                </category>
+                
+                <category>
+                <pattern>NO</pattern>
+                <that>Does the cloud interest you</that>
+                <template>Do local systems interest you?</template>
+                </category>
+                
+                    //DECISION branch for System's Admin or Nothing
+                    <category>
+                    <pattern>YES</pattern>
+                    <that>Do local systems interest you</that>
+                    <template>I think SYSTEM ADMIN would be a good job for you!</template>
+                    </category>
+                
+                    <category>
+                    <pattern>NO</pattern>
+                    <that>Do local systems interest you</that>
+                    <template>Hmmm I'm drawing a blank, sorry I can't help.</template>
+                    </category>
+                    
+                    <category>
+                    <pattern>*</pattern>
+                    <that>Do local systems interest you</that>
+                    <template>Yes or no answers please.</template>
+                    </category>
+                
+                <category>
+                <pattern>*</pattern>
+                <that>Does the cloud interest you</that>
+                <template>Yes or no answers please.</template>
+                </category>
+            
+            <category>
+            <pattern>*</pattern>
+            <that>WOULD YOU LIKE COORDINATING CUSTOMER NEEDS TO HELP DEVELOPERS</that>
+            <template>Yes or no answers please.</template>
+            </category>
+        
+        <category>
+        <pattern>*</pattern>
+        <that>Would you like the main responsibilty of your job to be coding</that>
+        <template>Yes or no answers please.</template>
+        </category>
+        
+        <category>
+            <pattern>*</pattern>
+            <that>YES OR NO ANSWERS PLEASE</that>
+            <template>Let's try this again, <srai>I WANT A NEW JOB</srai></template>
+        </category>
+    </topic>
+</aiml>
