@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-	<category>
+    <category>
     <pattern>HI</pattern>
-    <template>Hi, my name is <bot name="firstname"/></template>
-  </category>
+    <template>Hi, my name is Wilburt. Would you like to search for a new job?</template>
+    </category>
+    
+    <category>
+        <that>WOULD YOU LIKE TO SEARCH FOR A NEW JOB</that>
+        <pattern>YES</pattern>
+        <template><srai>I WANT A NEW JOB</srai></template>
+    </category>
+    
+    <category>
+        <that>WOULD YOU LIKE TO SEARCH FOR A NEW JOB</that>
+        <pattern>NO</pattern>
+        <template>Oh, then I am afraid there is nothing I can do for you.</template>
+    </category>
+    
+    <category>
+        <that>WOULD YOU LIKE TO SEARCH FOR A NEW JOB</that>
+        <pattern>*</pattern>
+        <template>I am not sure I understand.</template>
+    </category>
 </aiml>
